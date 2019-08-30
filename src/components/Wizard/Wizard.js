@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Wizard.css'
+import {Link} from 'react-router-dom'
 
 export default class Wizard extends Component {
     constructor(){
@@ -19,7 +20,7 @@ export default class Wizard extends Component {
                 <div className='wizlite'>
                 <div className='wizz'>
                 <h1 className="title">Add New Listing</h1>
-                <button className='cancel'>Cancel</button>
+               <Link to='/'><button className='cancel'>Cancel</button></Link>
                 </div>
 
 
