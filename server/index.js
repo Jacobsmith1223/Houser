@@ -29,7 +29,7 @@ app.use(session({
 
 massive(CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
-    console.log('much data, wow.')
+    console.log('much data, wow.🐕')
 }).catch(error => {
     console.log('mayday,mayday we are sinking')
 })
