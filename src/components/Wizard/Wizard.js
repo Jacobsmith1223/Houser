@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Wizard.css'
-import {Link} from 'react-router-dom'
+import {Link,} from 'react-router-dom'
+import axios from 'axios';
 
 export default class Wizard extends Component {
     constructor(){
@@ -14,6 +15,32 @@ export default class Wizard extends Component {
             zipcode:0
         }
 }
+addHome = () => {
+    
+
+    const{name,address,city,state,zipcode} = this.state;
+    const body = {
+        name,
+        address,
+        city,
+        state,
+        zipcode
+    }
+    axios.post('http://localhost:8080/api/home', body).then(res => {
+        this.setState({houses:res.data,
+            name:'',
+            address:'',
+            city:'',
+            state:'',
+            zipcode:''
+        })
+        
+    }).catch((error) => console.log(error))
+    
+}
+
+
+
     render() {
         return (
             <div className='wiz'>
@@ -45,7 +72,7 @@ export default class Wizard extends Component {
                 </div>
                 </div>
                 <div className='compbutt'>
-                <button className='complete'>Complete</button>
+               <Link to= '/'><button  className='complete' onClick={this.addHome}>Complete</button></Link>
                 </div>
                 
                 </div>

@@ -31,10 +31,14 @@ massive(CONNECTION_STRING).then(dbInstance => {
     app.set('db', dbInstance)
     console.log('much data, wow.🐕')
 }).catch(error => {
-    console.log('mayday,mayday we are sinking')
+    console.log(error)
 })
 
+app.get('/api/house', CTRL.getHouses)
 
+app.post('/api/home', CTRL.createHouse)
+
+app.delete('/api/home/:id', CTRL.deleteHome)
 
 
 app.listen(SERVER_PORT, () => {
